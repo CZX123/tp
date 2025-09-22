@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.RemarkCommand;
+import seedu.address.model.person.Remark;
 
 class RemarkCommandParserTest {
     private RemarkCommandParser parser = new RemarkCommandParser();
@@ -48,13 +49,14 @@ class RemarkCommandParserTest {
     @Test
     public void parse_validArgs_returnsRemarkCommand() {
         // no remark specified
-        assertParseSuccess(parser, "1", new RemarkCommand(INDEX_FIRST_PERSON, ""));
+        assertParseSuccess(parser, "1", new RemarkCommand(INDEX_FIRST_PERSON, new Remark("")));
 
         // empty remark
-        assertParseSuccess(parser, "1" + REMARK_DESC_EMPTY, new RemarkCommand(INDEX_FIRST_PERSON, ""));
+        assertParseSuccess(parser, "1" + REMARK_DESC_EMPTY, new RemarkCommand(INDEX_FIRST_PERSON, new Remark("")));
 
         // valid remark
-        assertParseSuccess(parser, "1" + REMARK_DESC_NON_EMPTY, new RemarkCommand(INDEX_FIRST_PERSON, VALID_REMARK));
+        assertParseSuccess(parser, "1" + REMARK_DESC_NON_EMPTY,
+                new RemarkCommand(INDEX_FIRST_PERSON, new Remark(VALID_REMARK)));
     }
 
 }

@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Remark;
 
 /**
  * Changes the remark of an existing person in the address book.
@@ -30,13 +31,13 @@ public class RemarkCommand extends Command {
 
 
     private final Index index;
-    private final String remark;
+    private final Remark remark;
 
     /**
      * @param index of the person in the filtered person list to change remark
      * @param remark new remark to be set
      */
-    public RemarkCommand(Index index, String remark) {
+    public RemarkCommand(Index index, Remark remark) {
         requireAllNonNull(index, remark);
 
         this.index = index;
@@ -58,8 +59,8 @@ public class RemarkCommand extends Command {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RemarkCommand that = (RemarkCommand) o;
-        return Objects.equals(index, that.index) && Objects.equals(remark, that.remark);
+        RemarkCommand other = (RemarkCommand) o;
+        return Objects.equals(index, other.index) && Objects.equals(remark, other.remark);
     }
 
     @Override
