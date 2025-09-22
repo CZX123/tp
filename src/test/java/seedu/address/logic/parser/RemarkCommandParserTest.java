@@ -16,10 +16,10 @@ import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.model.person.Remark;
 
 class RemarkCommandParserTest {
-    private RemarkCommandParser parser = new RemarkCommandParser();
-
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE);
+
+    private RemarkCommandParser parser = new RemarkCommandParser();
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
