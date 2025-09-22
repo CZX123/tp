@@ -58,5 +58,4 @@ class RemarkCommandParserTest {
         assertParseSuccess(parser, "1" + REMARK_DESC_NON_EMPTY,
                 new RemarkCommand(INDEX_FIRST_PERSON, new Remark(VALID_REMARK)));
     }
-
 }
