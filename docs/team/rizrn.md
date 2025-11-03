@@ -9,37 +9,39 @@ NUS Event Mailer Pro is a desktop address book application used for teaching Sof
 
 Given below are my contributions to the project.
 
-- **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+- **New Features**:
+  - Added ParticipantMap to manage many-to-many relationships between Events and Contacts [\#181](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/181)
+  - Added new `event rsvp` feature to manage event attendance status for participants [\#108](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/108)
+  - Added new `event find` feature to search for events based on various criteria [\#201](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/201)
+  - Update `event export` to be able to choose RSVP status to export [\#201](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/201)
 
-- **Code contributed**: [RepoSense link]()
+- **Code contributed**: [RepoSense link](https://nus-cs2103-ay2526s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2025-09-19T00%3A00%3A00&filteredFileName=&tabOpen=true&tabType=authorship&tabAuthor=rizrn&tabRepo=AY2526S1-CS2103T-F15b-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false&authorshipIsIgnoredFilesChecked=false)
 
 - **Project management**:
 
-  - Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  - Managed weekly meetings and took minutes throughout
+  - Update status board on notion
 
 - **Enhancements to existing features**:
 
-  - Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  - Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
+  - Added sample data for Events to improve user experience [\#186](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/186)
+  - Wrote additional tests for existing features (Pull requests [\#47](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/47), [\#63](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/63), [\#66](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/66), [\#80](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/80), [\#95](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/95), [\#123](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/169))
 
 - **Documentation**:
 
   - User Guide:
-    - Added documentation for the features `delete` and `find` [\#72]()
-    - Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    - Added documentation for the features `event find` [\#218](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/218)
+    - Did cosmetic tweaks to existing documentation of features `event rsvp`, `event export` [\#218](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/218)
   - Developer Guide:
-    - Added implementation details of the `delete` feature.
+    - Added implementation details of the Storage feature [\#229](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/229)
+    - Added activity diagram for `ParticipantMap` [\#230](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/230)
 
 - **Community**:
 
-  - PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  - Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  - Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  - Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
+  - PRs reviewed (with non-trivial review comments): [\#39](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/39),[\#49](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/49), [\#82](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/82), [\#105](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/105), [\#106](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/106), [\#152](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/152), [\#155](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/155)
+  - Helped smoke test iP jar file in the forum ([\#329](https://github.com/nus-cs2103-AY2526S1/forum/issues/329))
 
 - **Tools**:
+  - Utilized GitHub CLI (gh) extensively for repository management and PR operations
+  - Integrated Copilot assistant for documentation and code review workflows
 
-  - Integrated a third party library (Natty) to the project ([\#42]())
-  - Integrated a new Github plugin (CircleCI) to the team repo
-
-- _{you can add/remove categories in the list above}_
