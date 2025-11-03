@@ -35,6 +35,7 @@ Given below are my contributions to the project.
   - Developer Guide:
     - Added implementation details of the Storage feature [\#229](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/229)
     - Added activity diagram for `ParticipantMap` [\#230](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/230)
+
 - **Community**:
 
   - PRs reviewed (with non-trivial review comments): [\#39](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/39),[\#49](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/49), [\#82](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/82), [\#105](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/105), [\#106](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/106), [\#152](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/152), [\#155](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/155)
