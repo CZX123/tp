@@ -857,3 +857,27 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
 6. **Invalid Event/Contact Combination**
    - Command: `event link --event 999 --contact 1`
    - Expected: Error message about non-existent event
+
+## **Appendix C: Effort**
+
+1. **Difficulty Level**: Medium
+   - Difficulty lies in the implementation of complex data relationships, observable patterns, and performance 
+     considerations.
+
+2. **Challenges Faced**:
+   - Creating a new entity type (Event) and managing its relationships with existing Contact entities
+   - Linking contacts to events bidirectionally while maintaining data integrity is difficult with immutable data 
+     structures which required us to create a Participant junction entity that is closely similar to a database join 
+     table.
+   - Implementing observable patterns for real-time UI updates was difficult because adding new links between contacts
+     and events does not modify either entity directly, requiring an invalidationToggle mechanism to force UI refreshes.
+   - Ensuring data persistence with integrity checks.
+   - Balancing performance with large datasets to meet response time requirements.
+   
+3. **Achievements of the project**:
+   - Successfully implemented a robust contact-event management system with complex relationships that maintains
+      data integrity.
+   - Achieved real-time UI updates using JavaFX observable patterns.
+   - Ensured data integrity and persistence with JSON storage and corruption handling.
+   - Met performance targets for command response times and memory usage.
+
