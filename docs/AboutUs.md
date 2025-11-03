@@ -19,7 +19,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/rizrn.md)]
 
 * Role: Developer
-* Responsibilities: Integration & Testing
+* Responsibilities: Contact-event linking, Integration & testing
 
 ### Cai Zhouxuan
 
@@ -29,7 +29,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/czx123.md)]
 
 * Role: Developer
-* Responsibilities: Contact logic commands
+* Responsibilities: Contact CRUD logic, UI improvements, Release management
 
 ### Yi Jie
 
@@ -38,7 +38,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/ywijie)] [[portfolio](team/ywijie.md)]
 
 * Role: Developer
-* Responsibilities: UI and  Feature implementation
+* Responsibilities: UI design & implementation, Event export logic
 
 ### Darien Tan
 
@@ -48,7 +48,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/reven0n.md)]
 
 * Role: Developer
-* Responsibilities: Contact Logic Commands
+* Responsibilities: Event CRUD logic, Contact-event linking
 
 ### Zibin
 
@@ -58,4 +58,4 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/asaiyume.md)]
 
 * Role: Developer
-* Responsibilities: Models & Abstraction, Documentation, Code Quality
+* Responsibilities: Models & abstraction, Documentation, Code quality
