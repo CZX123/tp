@@ -19,7 +19,8 @@ Given below are my contributions to the project.
 
 - **Project management**:
 
-  - Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  - Managed weekly meetings and took minutes throughout
+  - Update status board on notion
 
 - **Enhancements to existing features**:
 
