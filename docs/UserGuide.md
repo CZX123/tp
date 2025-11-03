@@ -149,7 +149,7 @@ The NUS Event Mailer Pro interface is designed to be intuitive and efficient for
 #### Main Interface Components
 
 | #      | Description                                                    |
-| ------ | -------------------------------------------------------------- |
+|--------|----------------------------------------------------------------|
 | **1**  | Contact view button                                            |
 | **2**  | Event view button                                              |
 | **3**  | Help button, opens the user guide in your browser.             |
@@ -157,11 +157,13 @@ The NUS Event Mailer Pro interface is designed to be intuitive and efficient for
 | **5**  | Terminal window button (Alternatively, open with CTRL-T).      |
 | **6**  | Contact tags                                                   |
 | **7**  | Contact's linked events (Available)                            |
-| **8**  | Contact's linked events (Unavailable/Unknown)                  |
-| **9**  | Event's status (Pending/Ongoing/Done)                          |
-| **10** | Event's linked contacts (Available)                            |
-| **11** | Event's linked contacts (Unavailable/Unknown)                  |
-| **12** | Quick export button (Exports emails of all available contacts) |
+| **8**  | Contact's linked events (Unavailable)                          |
+| **9**  | Contact's linked events (Unknown)                              |
+| **10** | Event's status (Pending/Ongoing/Done)                          |
+| **11** | Event's linked contacts (Available)                            |
+| **12** | Event's linked contacts (Unavailable)                          |
+| **13** | Event's linked contacts (Unknown)                              |
+| **14** | Quick export button (Exports emails of all available contacts) |
 
 #### Key Features
 
@@ -442,7 +444,7 @@ contact show INDEX
 
 Screenshot Example:
 ![Contact Show Example](images/ContactShowExample.png)
-_In the example screenshot, we want to show all events for the contact at index 2 (highlighted under A), so we execute `contact show 2`, bringing us to the events page._
+_In the example screenshot, we want to show all events for the contact at index 3 (highlighted under A), so we execute `contact show 2`, bringing us to the events page._
 
 ---
 
@@ -698,7 +700,7 @@ event link --event EVENT_INDEX --contact CONTACT_INDEX
 
 Screenshot Example:
 ![Event Link Example](images/EventLinkExample.png)
-_In the example screenshot, we want to link the contact at index 6 (highlighted under A) to the event at index 1, so we execute `event link --event 1 --contact 6`._
+_In the example screenshot, we want to link the contact at index 3 (highlighted under A) to the event at index 2, so we execute `event link --event 2 --contact 3`._
 
 ### 3.7 `event unlink`
 
@@ -748,7 +750,7 @@ event unlink --event EVENT_INDEX --contact CONTACT_INDEX
 
 Screenshot Example:
 ![Event Unlink Example](images/EventUnlinkExample.png)
-_In the example screenshot, we want to unlink the contact at index 6 (highlighted under A) to the event at index 1, so we execute `event unlink --event 1 --contact 6`._
+_In the example screenshot, we want to unlink the contact at index 3 (highlighted under A) to the event at index 2, so we execute `event unlink --event 2 --contact 3`._
 
 <!-- @@author CZX123 -->
 
@@ -793,7 +795,7 @@ Screenshot Example:
 
 <img src="images/EventShowExample.png" width="600" alt="Event Show Example" />
 
-<!-- @@author -->
+<!-- @@author ywijie -->
 
 ### 3.9 `event export`
 
