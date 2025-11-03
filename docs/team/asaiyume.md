@@ -9,7 +9,7 @@ NUS Event Mailer Pro is a desktop application used to manage events and contacts
 
 Given below are my contributions to the project.
 
-- **New Feature**:
+- **New Features**:
 
   - Bootstrapped Event models and abstractions, including Event class, UniqueEventList, and related data structures [\#40](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/40)
   - Implemented contact find commands with advanced search arguments and filtering capabilities [\#92](https://github.com/AY2526S1-CS2103T-F15b-2/tp/pull/92)
