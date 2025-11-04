@@ -28,7 +28,7 @@ basic computer skills like using terminals, downloading files, will be required 
 
 3. **Save the file** in any folder you like - this will be your app's home
 
-4. **Start the app**: Open a terminal, go to that folder using the `cd` command , and type:
+4. **Start the app**: Open a terminal, go to that folder using the `cd` command, and type:
 
    ```
    java -jar nus-emp-v1.6.jar
@@ -127,7 +127,7 @@ Each field in NUS EMP has specific requirements to ensure data quality. Here are
 | **Email**          | Must follow format: `local-part@domain`<br>- Local part: alphanumeric and `+ _ . -` only, cannot start/end with special characters<br>- Domain: must end with at least 2 characters, labels separated by periods<br>- **Case-insensitive for uniqueness** (e.g., `John@Email.com` = `john@email.com`) | `john@email.com`, `mary.jane@company.co.uk`, `user+tag@domain.org` |
 | **Phone**          | Cannot be blank if provided. Can only contain standard characters, i.e. characters you can type on a standard US keyboard.                                                                                                                                                                        | `91234567`, `+65 9123 4567`, `123-456-7890`                        |
 | **Address**        | Cannot be blank if provided. Can only contain standard characters.                                                                                                                                                                                                                                | `123 Main Street`, `Blk 123 #01-01`, `Apt. 5B`                     |
-| **Tag**            | Cannot be blank.<br>Can only contain standard characters.<br>**Case-insensitive**. If duplicate tags are entered, only the tag defined first will be saved  .                                                                                                                                     | `friend`, `high-priority`, `VIP++`, `follow up`                    |
+| **Tag**            | Cannot be blank.<br>Can only contain standard characters.<br>**Case-insensitive**. If duplicate tags are entered, only the tag defined first will be saved.                                                                                                                                     | `friend`, `high-priority`, `VIP++`, `follow up`                    |
 | **Date**           | Format: `DD-MM-YYYY HH:MM` (24-hour time)                                                                                                                                                                                                                                                         | `25-12-2025 14:30`, `01-01-2026 09:00`                             |
 | **Event Status**   | Must be one of: `PENDING`, `ONGOING`, `DONE` (case-insensitive)                                                                                                                                                                                                                                   | `pending`, `ONGOING`, `Done`                                       |
 | **RSVP Status**    | Must be one of: `available`, `unavailable`, `unknown` (case-insensitive)                                                                                                                                                                                                                          | `available`, `UNAVAILABLE`, `Unknown`                              |
