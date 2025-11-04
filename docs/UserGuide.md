@@ -985,7 +985,7 @@ In our development roadmap, we plan to implement:
 | **Add Event**                         | `event add --name NAME --date DATE [--address ADDRESS] [--tag TAG]…`<br>e.g. `event add --name Meeting --date 25-12-2025 14:30 --address Room 4 --tag Work` |
 | **Delete Event**                      | `event delete INDEX`<br>e.g. `event delete 2`                                                                                                                 |
 | **Edit Event**                        | `event edit INDEX [--name NAME] [--date DATE] [--address ADDRESS] [--status STATUS] [--tag TAG]…`<br>e.g. `event edit 1 --name New Meeting`                   |
-| **Find Event**                        | `event find KEYWORDS [MORE_KEYWORDS]…` or <br>e.g. `event find --name Conference` <br> `event find --status pending` <br/>                                  |
+| **Find Event**                        | `event find KEYWORD [MORE_KEYWORDS]…` or <br>e.g. `event find --name Conference` <br> `event find --status pending` <br/>                                  |
 | **List Events**                       | `event list`                                                                                                                                                  |
 | **Link Contact to Event**             | `event link --event EVENT_INDEX --contact CONTACT_INDEX`<br>e.g. `event link --event 1 --contact 2`                                                           |
 | **Link Listed Contacts to Event**     | `event link --event EVENT_INDEX --contact listed`<br>e.g. `event link --event 1 --contact listed`                                                             |
