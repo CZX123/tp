@@ -117,6 +117,8 @@
     * [B.3 Event Management Testing]({{ baseUrl }}/DeveloperGuide.html#b-3-event-management-testing)
     * [B.4 Data Persistence Testing]({{ baseUrl }}/DeveloperGuide.html#b-4-data-persistence-testing)
     * [B.5 Error Handling Testing]({{ baseUrl }}/DeveloperGuide.html#b-5-error-handling-testing)
+  * [Appendix C: Effort]({{ baseUrl }}/DeveloperGuide.html#appendix-c-effort)
+  * [Appendix D: Planned Enhancements]({{ baseUrl }}/DeveloperGuide.html#appendix-d-planned-enhancements)
 * [About Us]({{ baseUrl }}/AboutUs.html)
       </site-nav>
     </div>

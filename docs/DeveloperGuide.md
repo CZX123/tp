@@ -11,19 +11,19 @@
 
 ---
 
-## **Acknowledgements**
+## Acknowledgements
 
 This project is based on the AddressBook-Level3 project created by the SE-EDU initiative.
 
 AI was used throughout the development of this project:
 
-- GitHub Copilot was used for auto-completing code snippets.
+- GitHub Copilot was used for auto-completing code snippets and PR reviews.
 - Claude Sonnet 4.5 was used to generate the unit tests.
 - Claude Haiku 4.5 was used to review long documents and tool-use to ensure document consistency.
 
 ---
 
-## **1. Getting Started**
+## 1. Getting Started
 
 ### 1.1 Project Overview
 
@@ -52,7 +52,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md) for detailed
 
 ---
 
-## **2. System Architecture**
+## 2. System Architecture
 
 ### 2.1 High-Level Architecture
 
@@ -161,7 +161,7 @@ The components interact through well-defined interfaces:
 
 ---
 
-## **3. Core Domain Model**
+## 3. Core Domain Model
 
 ### 3.1 Data Model Overview
 
@@ -202,7 +202,7 @@ Participant links between contacts and events are handled through a `Participant
 
 <puml src="diagrams/ParticipantMapActivityDiagram.puml" alt="ParticipantMap Activity Diagram" />
 
-## **4. Command System**
+## 4. Command System
 
 ### 4.1 Command Processing Flow
 
@@ -280,7 +280,7 @@ Error handling follows these principles:
 
 ---
 
-## **5. Component Interactions**
+## 5. Component Interactions
 
 ### 5.1 Add Contact Flow
 
@@ -427,7 +427,7 @@ Refer to Edit/Update Sequence Diagram above.
 
 ---
 
-## **6. Advanced Topics**
+## 6. Advanced Topics
 
 ### 6.1 Observable Pattern Implementation
 
@@ -508,7 +508,7 @@ contactListPanel.setItems(model.getFilteredContactList());
 
 ---
 
-## **7. Development Guidelines**
+## 7. Development Guidelines
 
 ### 7.1 Adding New Commands
 
@@ -615,7 +615,7 @@ void execute_contactAddCommand_success() {
 
 ---
 
-## **8. Supporting Documentation**
+## 8. Supporting Documentation
 
 - [Documentation guide](Documentation.md)
 - [Testing guide](Testing.md)
@@ -625,7 +625,7 @@ void execute_contactAddCommand_success() {
 
 ---
 
-## **Appendix A: Requirements**
+## Appendix A: Requirements
 
 ### A.1 Product Scope
 
@@ -673,37 +673,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and the **Actor** is the user, unless specified otherwise.
 
-| Use Case ID | Description                    | Actor | Preconditions                      | Main Success Scenario                                                                                                                                                             | Extensions                                                                                                                                                                                                                                                                                                                                                                                                                                     | Postconditions                                     | Priority |
-| ----------- | ------------------------------ | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------- |
-| UC01        | Add a contact                  | User  | System is running                  | 1. User inputs contact details with name and email<br>2. System validates required fields<br>3. Contact added to the system<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing or invalid<br> - System shows error message with missing fields<br> - User can retry with correct input<br> - Use case ends.<br>2a. Contact already exists<br> - System shows error about duplicate contact<br> - User can add with different email<br> - Use case ends.                                                                                                                                           | Contact added to system                            | High     |
-| UC02        | Delete a contact               | User  | Contact exists in displayed list   | 1. User selects contact by index<br>2. User confirms deletion<br>3. Contact removed from system and all associated events<br>4. Confirmation message displayed<br>Use case ends.  | 1a. Invalid contact index<br> - System shows error about invalid index<br> - User can try with correct index<br> - Use case ends.                                                                                                                                                                                                                                                                                                              | Contact removed from system and all events         | High     |
-| UC03        | Create an event                | User  | System is running                  | 1. User inputs event details with name and date<br>2. System validates date format<br>3. Event created with STARTING status<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing<br> - System shows error about missing name or date<br> - User can provide missing information<br> - Use case ends.<br>2a. Invalid date format<br> - System shows specific date format error (DD-MM-YYYY HH:mm)<br> - User can correct date format<br> - Use case ends.                                                                                                                                            | Event added to system                              | High     |
-| UC04        | Associate contacts with event  | User  | Event and contacts exist in system | 1. User selects event and contact by indices<br>2. System links contact to event<br>3. Contact marked as UNKNOWN for event<br>4. Confirmation message displayed<br>Use case ends. | 1a. Invalid event or contact index<br> - System shows error about non-existent event/contact<br> - User can select valid indices<br> - Use case ends.<br>2a. Contact already linked to event<br> - System shows that association already exists<br> - User can select different contact<br> - Use case ends.                                                                                                                                   | Contact-event association created                  | High     |
-| UC05        | List contacts                  | User  | System is running                  | 1. User requests to list contacts<br>2. System displays all contacts<br>3. Each contact shown with index and details<br>Use case ends.                                            | 1a. No contacts exist<br> - System shows "No contacts found"<br> - User can add contacts using add command<br> - Use case ends.                                                                                                                                                                                                                                                                                                                | Contact list displayed with indices                | Medium   |
-| UC06        | List events                    | User  | System is running                  | 1. User requests to list events<br>2. System displays all events<br>3. Each event shown with index, date, and status<br>Use case ends.                            | 1a. No events exist<br> - System shows "No events found"<br> - User can create events using add command<br> - Use case ends.                                                                                                                                                                                                                                                                                                                   | Event list displayed               | Medium   |
-| UC07        | Filter contacts by criteria    | User  | Contacts exist in system           | 1. User inputs search keywords or field criteria<br>2. System filters contacts matching criteria<br>3. Filtered list displayed with new indices<br>Use case ends.                 | 1a. No contacts match criteria<br> - System shows "No contacts found"<br> - User can try different search terms<br> - Use case ends.<br>2a. Invalid search syntax<br> - System shows error about search format<br> - User can correct search syntax<br> - Use case ends.                                                                                                                                                                       | Filtered contact list displayed                    | Medium   |
-| UC08        | Update RSVP status for contact | User  | Contact already linked to event    | 1. User selects event, contact, and RSVP status<br>2. System updates contact's status for event<br>3. Confirmation message displayed with new status<br>Use case ends.            | 1a. Invalid event or contact index<br> - System shows error about non-existent selection<br> - User can select valid indices<br> - Use case ends.<br>2a. Invalid RSVP status<br> - System shows valid status options (available/unavailable/unknown)<br> - User can select valid status<br> - Use case ends.<br>3a. Contact not linked to event<br> - System shows contact not in event<br> - User can link contact first<br> - Use case ends. | RSVP status updated for contact-event relationship | High     |
+| Use Case                             | Preconditions                      | Main Success Scenario                                                                                                                                                             | Extensions                                                                                                                                                                                                                                                                                                                                                                                                                                     | Postconditions                                     |
+|--------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| UC01: Add a contact                  | System is running                  | 1. User inputs contact details with name and email<br>2. System validates required fields<br>3. Contact added to the system<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing or invalid<br> - System shows error message with missing fields<br> - User can retry with correct input<br> - Use case ends.<br>2a. Contact already exists<br> - System shows error about duplicate contact<br> - User can add with different email<br> - Use case ends.                                                                                                                                           | Contact added to system                            |
+| UC02: Delete a contact               | Contact exists in displayed list   | 1. User selects contact by index<br>2. User confirms deletion<br>3. Contact removed from system and all associated events<br>4. Confirmation message displayed<br>Use case ends.  | 1a. Invalid contact index<br> - System shows error about invalid index<br> - User can try with correct index<br> - Use case ends.                                                                                                                                                                                                                                                                                                              | Contact removed from system and all events         |
+| UC03: Edit a contact                 | Contact exists in displayed list   | 1. User selects contact by index<br>2. User edits the contact<br>3. System updates the contact fields.<br>4. Confirmation message displayed<br>Use case ends.                     | 1a. Invalid contact index<br> - System shows error about invalid index<br> - User can try with correct index<br> - Use case ends. 1b. Invalid command format for editing fields<br> - System shows error about invalid command format, and a usage message<br> - User can try with correct correct format<br> - Use case ends.                                                                                                                 | Contact is updated with new fields                 |
+| UC04: Create an event                | System is running                  | 1. User inputs event details with name and date<br>2. System validates date format<br>3. Event created with STARTING status<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing<br> - System shows error about missing name or date<br> - User can provide missing information<br> - Use case ends.<br>2a. Invalid date format<br> - System shows specific date format error (DD-MM-YYYY HH:mm)<br> - User can correct date format<br> - Use case ends.                                                                                                                                            | Event added to system                              |
+| UC05: Delete an event                | System is running                  | Similar to UC02, but contact is replaced with event, and vice versa                                                                                                               | Similar to UC02, but contact is replaced with event, and vice versa                                                                                                                                                                                                                                                                                                                                                                            | Event removed from system and all contacts         |
+| UC06: Edit an event                  | System is running                  | Similar to UC03, but contact is replaced with event, and vice versa                                                                                                               | Similar to UC03, but contact is replaced with event, and vice versa                                                                                                                                                                                                                                                                                                                                                                            | Event is updated with new fields                   |
+| UC07: List contacts                  | System is running                  | 1. User requests to list contacts<br>2. System displays all contacts<br>3. Each contact shown with index and details<br>Use case ends.                                            | 1a. No contacts exist<br> - System shows "No contacts found"<br> - User can add contacts using add command<br> - Use case ends.                                                                                                                                                                                                                                                                                                                | Contact list displayed                             |
+| UC08: List events                    | System is running                  | 1. User requests to list events<br>2. System displays all events<br>3. Each event shown with index, date, and status<br>Use case ends.                                            | 1a. No events exist<br> - System shows "No events found"<br> - User can create events using add command<br> - Use case ends.                                                                                                                                                                                                                                                                                                                   | Event list displayed                               |
+| UC09: Filter contacts by criteria    | Contacts exist in system           | 1. User inputs search keywords or field criteria<br>2. System filters contacts matching criteria<br>3. Filtered list displayed with new indices<br>Use case ends.                 | 1a. No contacts match criteria<br> - System shows "No contacts found"<br> - User can try different search terms<br> - Use case ends.<br>2a. Invalid search syntax<br> - System shows error about search format<br> - User can correct search syntax<br> - Use case ends.                                                                                                                                                                       | Filtered contact list displayed                    |
+| UC10: Filter events by criteria      | Events exist in system             | Similar to UC09, but replace contacts with events                                                                                                                                 | Similar to UC09, but replace contacts with events                                                                                                                                                                                                                                                                                                                                                                                              | Filtered event list displayed                      |
+| UC11: Associate contacts with event  | Event and contacts exist in system | 1. User selects event and contact by indices<br>2. System links contact to event<br>3. Contact marked as UNKNOWN for event<br>4. Confirmation message displayed<br>Use case ends. | 1a. Invalid event or contact index<br> - System shows error about non-existent event/contact<br> - User can select valid indices<br> - Use case ends.<br>2a. Contact already linked to event<br> - System shows that association already exists<br> - User can select different contact<br> - Use case ends.                                                                                                                                   | Contact-event association created                  |
+| UC12: Remove contacts from event     | System is running                  | 1. User selects event and contact by indices<br>2. System unlinks contact from event<br>3. Confirmation message displayed<br>Use case ends.                                       | 1a. Invalid event or contact index<br> - System shows error about non-existent event/contact<br> - User can select valid indices<br> - Use case ends.<br>1b. Contact not linked to event<br> - System shows that contact is already unlinked to event<br> -Use case ends.                                                                                                                                                                      | Contact-event association removed                  |
+| UC13: Update RSVP status for contact | Contact already linked to event    | 1. User selects event, contact, and RSVP status<br>2. System updates contact's status for event<br>3. Confirmation message displayed with new status<br>Use case ends.            | 1a. Invalid event or contact index<br> - System shows error about non-existent selection<br> - User can select valid indices<br> - Use case ends.<br>2a. Invalid RSVP status<br> - System shows valid status options (available/unavailable/unknown)<br> - User can select valid status<br> - Use case ends.<br>3a. Contact not linked to event<br> - System shows contact not in event<br> - User can link contact first<br> - Use case ends. | RSVP status updated for contact-event relationship |
 
 ### A.4 Non-Functional Requirements
 
-| NFR ID   | Category        | Description                           | Metric/Target                                 | Priority |
-| -------- | --------------- | ------------------------------------- | --------------------------------------------- | -------- |
-| NFR-T01  | Technical       | Runtime environment compatibility     | Java 17, Windows/macOS/Linux                  | High     |
-| NFR-T02  | Technical       | Deployment method                     | Single JAR, no installer                      | High     |
-| NFR-T03  | Technical       | Network dependency                    | Offline functionality                         | High     |
-| NFR-P01  | Performance     | Command response time                 | < 500ms for typical commands                  | High     |
-| NFR-P02  | Performance     | Application startup time              | < 3 seconds on standard hardware              | High     |
-| NFR-P03  | Performance     | Memory usage with 10,000 contacts     | < 5000MB                                      | Medium   |
-| NFR-P04  | Performance     | Data storage size for 10,000 contacts | < 50MB                                        | Medium   |
-| NFR-P05  | Performance     | Supported data capacity               | 10,000 contacts, 1,000 events                 | High     |
-| NFR-UX01 | User Experience | Interface design                      | Keyboard-driven, clean and simple             | High     |
-| NFR-UX02 | User Experience | Command syntax consistency            | Consistent format across all operations       | High     |
-| NFR-UX03 | User Experience | Error message quality                 | Clear, actionable guidance                    | High     |
-| NFR-UX04 | User Experience | Command response usefulness           | Clear success/failure indication              | High     |
-| NFR-F01  | Features        | Data file format                      | Human-editable (JSON)                         | Medium   |
-| NFR-F02  | Features        | Data corruption handling              | Recovery warnings and manual recovery options | Medium   |
-| NFR-D01  | Development     | Code coverage requirement             | ≥ 75% code coverage                           | Medium   |
-| NFR-D02  | Development     | Testing framework                     | JUnit 5, comprehensive test suite             | Medium   |
+| NFR ID   | Category        | Description                         | Metric/Target                                 | Priority |
+| -------- | --------------- | ----------------------------------- |-----------------------------------------------| -------- |
+| NFR-T01  | Technical       | Runtime environment compatibility   | Java 17, Windows/macOS/Linux                  | High     |
+| NFR-T02  | Technical       | Deployment method                   | Single JAR, no installer                      | High     |
+| NFR-T03  | Technical       | Network dependency                  | Offline functionality                         | High     |
+| NFR-P01  | Performance     | Command response time               | < 500ms for typical commands                  | High     |
+| NFR-P02  | Performance     | Application startup time            | < 3 seconds on standard hardware              | High     |
+| NFR-P03  | Performance     | Memory usage with 1000 contacts     | < 1000MB                                      | Medium   |
+| NFR-P04  | Performance     | Data storage size for 1000 contacts | < 5MB                                         | Medium   |
+| NFR-P05  | Performance     | Supported data capacity             | 1000 contacts, 1000 events                    | High     |
+| NFR-UX01 | User Experience | Interface design                    | Keyboard-driven, clean and simple             | High     |
+| NFR-UX02 | User Experience | Command syntax consistency          | Consistent format across all operations       | High     |
+| NFR-UX03 | User Experience | Error message quality               | Clear, actionable guidance                    | High     |
+| NFR-UX04 | User Experience | Command response usefulness         | Clear success/failure indication              | High     |
+| NFR-F01  | Features        | Data file format                    | Human-editable (JSON)                         | Medium   |
+| NFR-F02  | Features        | Data corruption handling            | Recovery warnings and manual recovery options | Medium   |
+| NFR-D01  | Development     | Code coverage requirement           | ≥ 70% code coverage                           | Medium   |
+| NFR-D02  | Development     | Testing framework                   | JUnit 5, comprehensive test suite             | Medium   |
 
 ### A.5 Requirements Priority Matrix
 
@@ -731,7 +736,7 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
 
 ---
 
-## **Appendix B: Manual Testing Instructions**
+## Appendix B: Manual Testing Instructions
 
 <box type="info" seamless>
 
@@ -858,7 +863,7 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
    - Command: `event link --event 999 --contact 1`
    - Expected: Error message about non-existent event
 
-## **Appendix C: Effort**
+## Appendix C: Effort
 
 1. **Difficulty Level**: Medium
    - Difficulty lies in the implementation of complex data relationships, observable patterns, and performance 
@@ -881,3 +886,12 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
    - Ensured data integrity and persistence with JSON storage and corruption handling.
    - Met performance targets for command response times and memory usage.
 
+## Appendix D: Planned Enhancements
+
+Team size: 5
+
+1. **Fix graphical glitches when selecting contacts and events**. There is a momentary flicker when clicking or using arrow keys to select contact and event items, and we plan to remove this glitch in the future by caching the contact and event UI objects instead of recreating them on every load to improve performance. If that does not work, restructuring the UI layout can be done as a workaround.
+2. **Fix window not appearing if user uses multiple screens**. This is because of how window dimensions are saved inside `preferences.json`, and the second screen will have a much larger x-coordinate, causing the window to be off-screen. We plan to fix this by detecting the full window screen size and placing the app window within the screen boundaries.
+3. **Fix window restore buggy behavior if the window was maximized before closing the app**. Currently, if the user were to close the app maximized, upon re-opening it, the "restore" function of the window does not seem to do anything. We plan to fix this by listening to the window resize and storing only the minimized dimensions inside `preferences.json`, not the maximized dimensions.
+4. **Enhance contact adding by allowing imports from csv files**. Currently, `contact add` only allows adding single contacts. We plan to enhance contact adding by allowing users to define a file path inside the command, and document the csv file format so users can easily add contacts in batch.
+5. **Enable tag adding instead of tag replacement**. Currently, editing a contact or event tags will replace all the previous tags. Adding tags is a more common use case then just replacing all of them, so we plan to enhance contact tag editing by making the default behavior to be adding tags instead, and reverting to the old behavior with a special option `--replace`, so users still can remove tags using `--replace`.
