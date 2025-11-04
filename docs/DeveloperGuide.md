@@ -31,7 +31,7 @@ NUS Event Mailer Pro (NUS EMP) is a desktop application designed for NUS event o
 
 **Core Capabilities:**
 
-- Contact management with tagging and role assignment
+- Contact management with tagging and event assignment
 - Event creation and status tracking
 - Contact-event association management
 - Bulk email campaign preparation
@@ -168,6 +168,7 @@ The components interact through well-defined interfaces:
 <puml src="diagrams/ModelClassDiagram.puml" width="500" alt="Model Class Diagram"/>
 
 The `Model` component,
+
 - stores all data in NUS EMP
 - stores the currently "selected" `Contact`s and `Event`s as a filtered list, exposed to outsiders as an unmodifiable `ObservableList`, which can be observed for UI updates
 - stores a `UserPref` object that represents the user’s preferences, e.g. dark theme, window sizes
@@ -184,11 +185,13 @@ The `Model` component manages three core entity types:
 <puml src="diagrams/ContactEventClassDiagram.puml" width="500" alt="Class Diagram for both Contact and Event"/>
 
 Both `Contact` and `Event` classes share several design characteristics:
+
 - Immutable data structure that contains various fields, which are in turn represented by their own classes: `Name`, `Email`, `Phone`, `Address`, `Tag`, `Date`, `EventStatus`
 - Primary key system for uniqueness: email address (case-insensitive) for `Contact`, name for `Event`
 - An internal field `invalidationToggle` to provide invalidation mechanism for observable list updates
 
 For the field classes:
+
 - Each class encapsulates validation logic and formatting rules specific to its own field type.
 - Each field class must be provided during the construction of `Contact` or `Event` objects, even optional fields.
 - Optional fields (i.e. `Phone` and `Address`) are represented using empty values instead.
@@ -196,6 +199,7 @@ For the field classes:
 ## 3.3 Participant Handling
 
 Participant links between contacts and events are handled through a `ParticipantMap`:
+
 - It internally uses two HashMaps to maintain bidirectional relationships.
 - Keys used are `ContactKey` and `EventKey`, which are simple classes that only store the primary key fields (i.e. case-insensitive email for `ContactKey` and name for `EventKey`).
 - Lookups for contacts and their linked events are done through these keys for efficiency.
@@ -644,20 +648,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | Priority | As a …          | I want to …                                                               | So that I can…                                         |
 | -------- | --------------- | ------------------------------------------------------------------------- | ------------------------------------------------------ |
 | `* * *`  | event organizer | add a contact with standard fields (Name, Phone, Email, Address)          | build my core contact database                         |
-| `* * *`  | event organizer | associate a specific Role (e.g., 'Speaker', 'Attendee', 'VIP', 'Sponsor') | categorize and filter my contacts effectively          |
+| `* * *`  | event organizer | associate a specific tag (e.g., 'Speaker', 'Attendee', 'VIP', 'Sponsor')  | categorize and filter my contacts effectively          |
 | `* * *`  | event organizer | delete a contact from the address book                                    | remove outdated or irrelevant entries                  |
 | `* * *`  | event organizer | create a new event with name, date, time, and venue                       | start organizing my contacts around it                 |
 | `* * *`  | event organizer | view a list of all my events, showing key details and their status        | get an overview of upcoming, past, or cancelled events |
 | `* * *`  | event organizer | associate contacts from my address book with a specific event             | build an attendee list for the event                   |
 | `* * *`  | event organizer | get a list of contacts defined by tags, or event association              | target communications and manage groups efficiently    |
 | `* *`    | event organizer | set RSVP status for a contact for a specific event                        | track attendance commitments                           |
-| `* *`    | event organizer | edit any field of an existing contact, including role and RSVP status     | keep contact information up-to-date                    |
+| `* *`    | event organizer | edit any field of an existing contact, including tag and RSVP status      | keep contact information up-to-date                    |
 | `* *`    | event organizer | view all details of a contact, including tags, and associated events      | see a clean, readable summary                          |
 | `* *`    | event organizer | view all details of an event, including tags, and associated contacts     | see a clean, readable summary                          |
-| `* *`    | event organizer | find contacts by searching any field (Name, Role, Tag, Email)             | quickly locate specific individuals                    |
+| `* *`    | event organizer | find contacts by searching any field (Name, Tag, Email)                   | quickly locate specific individuals                    |
 | `* *`    | event organizer | add multiple tags to a contact                                            | perform complex filtering                              |
 | `* *`    | event organizer | filter contact list by tags                                               | create highly specific lists                           |
-| `* *`    | event organizer | list all contacts, with option to sort by Name or Role                    | get a general overview                                 |
+| `* *`    | event organizer | list all contacts, with option to sort by Name or tags                    | get a general overview                                 |
 | `* *`    | event organizer | remove a contact from an event without deleting from address book         | manage event participation flexibly                    |
 | `* *`    | event organizer | archive a past event                                                      | keep main view uncluttered but retain data             |
 | `* *`    | event organizer | set event status to 'Cancelled'                                           | exclude it from mailings                               |
@@ -674,11 +678,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and the **Actor** is the user, unless specified otherwise.
 
 | Use Case                             | Preconditions                      | Main Success Scenario                                                                                                                                                             | Extensions                                                                                                                                                                                                                                                                                                                                                                                                                                     | Postconditions                                     |
-|--------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| ------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | UC01: Add a contact                  | System is running                  | 1. User inputs contact details with name and email<br>2. System validates required fields<br>3. Contact added to the system<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing or invalid<br> - System shows error message with missing fields<br> - User can retry with correct input<br> - Use case ends.<br>2a. Contact already exists<br> - System shows error about duplicate contact<br> - User can add with different email<br> - Use case ends.                                                                                                                                           | Contact added to system                            |
 | UC02: Delete a contact               | Contact exists in displayed list   | 1. User selects contact by index<br>2. User confirms deletion<br>3. Contact removed from system and all associated events<br>4. Confirmation message displayed<br>Use case ends.  | 1a. Invalid contact index<br> - System shows error about invalid index<br> - User can try with correct index<br> - Use case ends.                                                                                                                                                                                                                                                                                                              | Contact removed from system and all events         |
 | UC03: Edit a contact                 | Contact exists in displayed list   | 1. User selects contact by index<br>2. User edits the contact<br>3. System updates the contact fields.<br>4. Confirmation message displayed<br>Use case ends.                     | 1a. Invalid contact index<br> - System shows error about invalid index<br> - User can try with correct index<br> - Use case ends. 1b. Invalid command format for editing fields<br> - System shows error about invalid command format, and a usage message<br> - User can try with correct correct format<br> - Use case ends.                                                                                                                 | Contact is updated with new fields                 |
-| UC04: Create an event                | System is running                  | 1. User inputs event details with name and date<br>2. System validates date format<br>3. Event created with PENDING status<br>4. Success message displayed<br>Use case ends.     | 1a. Required fields missing<br> - System shows error about missing name or date<br> - User can provide missing information<br> - Use case ends.<br>2a. Invalid date format<br> - System shows specific date format error (DD-MM-YYYY HH:mm)<br> - User can correct date format<br> - Use case ends.                                                                                                                                            | Event added to system                              |
+| UC04: Create an event                | System is running                  | 1. User inputs event details with name and date<br>2. System validates date format<br>3. Event created with PENDING status<br>4. Success message displayed<br>Use case ends.      | 1a. Required fields missing<br> - System shows error about missing name or date<br> - User can provide missing information<br> - Use case ends.<br>2a. Invalid date format<br> - System shows specific date format error (DD-MM-YYYY HH:mm)<br> - User can correct date format<br> - Use case ends.                                                                                                                                            | Event added to system                              |
 | UC05: Delete an event                | System is running                  | Similar to UC02, but contact is replaced with event, and vice versa                                                                                                               | Similar to UC02, but contact is replaced with event, and vice versa                                                                                                                                                                                                                                                                                                                                                                            | Event removed from system and all contacts         |
 | UC06: Edit an event                  | System is running                  | Similar to UC03, but contact is replaced with event, and vice versa                                                                                                               | Similar to UC03, but contact is replaced with event, and vice versa                                                                                                                                                                                                                                                                                                                                                                            | Event is updated with new fields                   |
 | UC07: List contacts                  | System is running                  | 1. User requests to list contacts<br>2. System displays all contacts<br>3. Each contact shown with index and details<br>Use case ends.                                            | 1a. No contacts exist<br> - System shows "No contacts found"<br> - User can add contacts using add command<br> - Use case ends.                                                                                                                                                                                                                                                                                                                | Contact list displayed                             |
@@ -692,7 +696,7 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
 ### A.4 Non-Functional Requirements
 
 | NFR ID   | Category        | Description                         | Metric/Target                                 | Priority |
-| -------- | --------------- | ----------------------------------- |-----------------------------------------------| -------- |
+| -------- | --------------- | ----------------------------------- | --------------------------------------------- | -------- |
 | NFR-T01  | Technical       | Runtime environment compatibility   | Java 17, Windows/macOS/Linux                  | High     |
 | NFR-T02  | Technical       | Deployment method                   | Single JAR, no installer                      | High     |
 | NFR-T03  | Technical       | Network dependency                  | Offline functionality                         | High     |
@@ -866,22 +870,22 @@ For all use cases below, the **System** is NUS Event Mailer Pro (NUS EMP) and th
 ## Appendix C: Effort
 
 1. **Difficulty Level**: Medium
-   - Difficulty lies in the implementation of complex data relationships, observable patterns, and performance 
+
+   - Difficulty lies in the implementation of complex data relationships, observable patterns, and performance
      considerations.
 
 2. **Challenges Faced**:
    - Creating a new entity type (Event) and managing its relationships with existing Contact entities
-   - Linking contacts to events bidirectionally while maintaining data integrity is difficult with immutable data 
-     structures which required us to create a Participant junction entity that is closely similar to a database join 
+   - Linking contacts to events bidirectionally while maintaining data integrity is difficult with immutable data
+     structures which required us to create a Participant junction entity that is closely similar to a database join
      table.
    - Implementing observable patterns for real-time UI updates was difficult because adding new links between contacts
      and events does not modify either entity directly, requiring an invalidationToggle mechanism to force UI refreshes.
    - Ensuring data persistence with integrity checks.
    - Balancing performance with large datasets to meet response time requirements.
-   
 3. **Achievements of the project**:
    - Successfully implemented a robust contact-event management system with complex relationships that maintains
-      data integrity.
+     data integrity.
    - Achieved real-time UI updates using JavaFX observable patterns.
    - Ensured data integrity and persistence with JSON storage and corruption handling.
    - Met performance targets for command response times and memory usage.
