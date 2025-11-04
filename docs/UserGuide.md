@@ -4,9 +4,7 @@
   pageNav: 3
 ---
 
-# NUS Event Mailer Pro
-
-Welcome to NUS Event Mailer Pro!
+# NUS Event Mailer Pro User Guide
 
 NUS Event Mailer Pro (NUS EMP) is a desktop app for event organizers at NUS to **manage hundreds of events and contacts quickly and easily**. It's designed for speed and simplicity, as most actions can be done by typing commands directly, allowing you to work quickly without relying on menus or complex navigation.
 
@@ -15,14 +13,16 @@ basic computer skills like using terminals, downloading files, will be required 
 
 <page-nav-print />
 
+<div class="page-break"></div>
+
 ---
 
 ## 1. Getting Started
 
 ### 1.1 Installation
 
-1. **Check if you have Java 17 or newer** on your computer<br>
-   _Mac users:_ Get the right Java version [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+1. **Check if you have Java 17 or newer** on your computer. If you're unsure, check our [FAQ section](#5-frequently-asked-questions) for help.<br>
+   Note: **for Mac users**, you'll have to get the specific Java version described [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
 
 2. **Download the app** from [our releases page](https://github.com/AY2526S1-CS2103T-F15b-2/tp/releases)
 
@@ -33,8 +33,10 @@ basic computer skills like using terminals, downloading files, will be required 
    ```
    java -jar nus-emp-v1.6.jar
    ```
+   
+   If you're unsure of how to use the `cd` command, check out the [FAQ section](#5-frequently-asked-questions) for help.
 
-   You'll see the app window appear with some sample contacts and events!
+5. **Finish installation**: You'll see the app window appear with some sample contacts and events!
 
 <box type="tip" seamless>
 
@@ -51,7 +53,7 @@ basic computer skills like using terminals, downloading files, will be required 
 - Type in **lowercase letters**
 - Press **Enter** after typing
 - Some commands need extra info (like a name or number)
-- Open command box with **CTRL+T** or the **⌘ button**
+- Open command terminal with **CTRL+T** or the **⌘ button**
 
 #### Understanding Command Formats
 
@@ -118,18 +120,18 @@ Each field in NUS EMP has specific requirements to ensure data quality. Here are
 
 #### Contact and Event Fields
 
-| Field              | Constraints                                                                                                                                                                                                                                                                                           | Examples                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| **Name (Contact)** | Cannot be blank. Can contain alphanumeric characters including spaces and special characters.                                                                                                                                                                                                         | `John Doe`, `Mary-Jane O'Brien`, `李明`                            |
-| **Name (Event)**   | Cannot be blank. Can contain alphanumeric characters including spaces and special characters. **Must be unique** - no two events can have the same name.                                                                                                                                              | `Team Meeting`, `Orientation 25/26`, `Annual Dinner 2025`          |
+| Field              | Constraints                                                                                                                                                                                                                                                                                       | Examples                                                           |
+| ------------------ |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------------ |
+| **Name (Contact)** | Cannot be blank. Can contain any character.                                                                                                                                                                                                                                                       | `John Doe`, `Mary-Jane O'Brien`, `李明`                            |
+| **Name (Event)**   | Cannot be blank. Can contain any character. **Must be unique** - no two events can have the same name.                                                                                                                                                                                            | `Team Meeting`, `Orientation 25/26`, `Annual Dinner 2025`          |
 | **Email**          | Must follow format: `local-part@domain`<br>- Local part: alphanumeric and `+ _ . -` only, cannot start/end with special characters<br>- Domain: must end with at least 2 characters, labels separated by periods<br>- **Case-insensitive for uniqueness** (e.g., `John@Email.com` = `john@email.com`) | `john@email.com`, `mary.jane@company.co.uk`, `user+tag@domain.org` |
-| **Phone**          | Cannot be blank if provided. Can contain alphanumeric characters including spaces and special characters.                                                                                                                                                                                             | `91234567`, `+65 9123 4567`, `123-456-7890`                        |
-| **Address**        | Cannot be blank if provided. Can contain alphanumeric characters including spaces and special characters.                                                                                                                                                                                             | `123 Main Street`, `Blk 123 #01-01`, `Apt. 5B`                     |
-| **Tag**            | Cannot be blank. Can contain alphanumeric characters including spaces and special characters. Case-insensitive. Saves the first field if duplicate tag is entered.                                                                                                                                    | `friend`, `high-priority`, `VIP++`, `follow up`                    |
-| **Date**           | Format: `DD-MM-YYYY HH:MM` (24-hour time)                                                                                                                                                                                                                                                             | `25-12-2025 14:30`, `01-01-2026 09:00`                             |
-| **Event Status**   | Must be one of: `PENDING`, `ONGOING`, `DONE` (case-insensitive)                                                                                                                                                                                                                                       | `pending`, `ONGOING`, `Done`                                       |
-| **RSVP Status**    | Must be one of: `available`, `unavailable`, `unknown` (case-insensitive)                                                                                                                                                                                                                              | `available`, `UNAVAILABLE`, `Unknown`                              |
-| **Index**          | Positive integer within the displayed list range                                                                                                                                                                                                                                                      | `1`, `2`, `50`                                                     |
+| **Phone**          | Cannot be blank if provided. Can only contain standard characters, i.e. characters you can type on a standard US keyboard.                                                                                                                                                                        | `91234567`, `+65 9123 4567`, `123-456-7890`                        |
+| **Address**        | Cannot be blank if provided. Can only contain standard characters.                                                                                                                                                                                                                                | `123 Main Street`, `Blk 123 #01-01`, `Apt. 5B`                     |
+| **Tag**            | Cannot be blank.<br>Can only contain standard characters.<br>**Case-insensitive**. If duplicate tags are entered, only the tag defined first will be saved.                                                                                                                                     | `friend`, `high-priority`, `VIP++`, `follow up`                    |
+| **Date**           | Format: `DD-MM-YYYY HH:MM` (24-hour time)                                                                                                                                                                                                                                                         | `25-12-2025 14:30`, `01-01-2026 09:00`                             |
+| **Event Status**   | Must be one of: `PENDING`, `ONGOING`, `DONE` (case-insensitive)                                                                                                                                                                                                                                   | `pending`, `ONGOING`, `Done`                                       |
+| **RSVP Status**    | Must be one of: `available`, `unavailable`, `unknown` (case-insensitive)                                                                                                                                                                                                                          | `available`, `UNAVAILABLE`, `Unknown`                              |
+| **Index**          | Positive integer within the displayed list range                                                                                                                                                                                                                                                  | `1`, `2`, `50`                                                     |
 
 <box type="warning" seamless>
 
@@ -148,22 +150,22 @@ The NUS Event Mailer Pro interface is designed to be intuitive and efficient for
 
 #### Main Interface Components
 
-| #      | Description                                                    |
-|--------|----------------------------------------------------------------|
-| **1**  | Contact view button                                            |
-| **2**  | Event view button                                              |
-| **3**  | Help button, opens the user guide in your browser.             |
-| **4**  | Button to switch between light and dark mode.                  |
-| **5**  | Terminal window button (Alternatively, open with CTRL-T).      |
-| **6**  | Contact tags                                                   |
-| **7**  | Contact's linked events (Available)                            |
-| **8**  | Contact's linked events (Unavailable)                          |
-| **9**  | Contact's linked events (Unknown)                              |
-| **10** | Event's status (Pending/Ongoing/Done)                          |
-| **11** | Event's linked contacts (Available)                            |
-| **12** | Event's linked contacts (Unavailable)                          |
-| **13** | Event's linked contacts (Unknown)                              |
-| **14** | Quick export button (Exports emails of all available contacts) |
+| #      | Description                                                          |
+|--------|----------------------------------------------------------------------|
+| **1**  | Contact view button                                                  |
+| **2**  | Event view button                                                    |
+| **3**  | Help button, opens the user guide in your browser.                   |
+| **4**  | Button to toggle light and dark mode.                                |
+| **5**  | Button to toggle command terminal (Alternatively, open with CTRL-T). |
+| **6**  | Contact tags                                                         |
+| **7**  | Contact's linked events (Available)                                  |
+| **8**  | Contact's linked events (Unavailable)                                |
+| **9**  | Contact's linked events (Unknown)                                    |
+| **10** | Event's status (Pending/Ongoing/Done)                                |
+| **11** | Event's linked contacts (Available)                                  |
+| **12** | Event's linked contacts (Unavailable)                                |
+| **13** | Event's linked contacts (Unknown)                                    |
+| **14** | Quick export button (Exports emails of all available contacts)       |
 
 #### Key Features
 
@@ -173,12 +175,17 @@ The NUS Event Mailer Pro interface is designed to be intuitive and efficient for
 - **Visual Feedback**: Commands show clear success/error messages
 - **Quick Access**: Frequently used actions are available through the sidebar
 
+<box type="tip" seamless>
+
 **Navigation Tips:**
 
-- Scroll through long lists using the scroll bars
 - Click on contacts or events to select them (when applicable)
-- Use the command box for quick actions rather than navigating menus
-- The interface stays responsive even with hundreds of contacts and events
+- Scroll through long lists using the scroll bar or arrow keys
+- Use the command terminal for quick actions rather than navigating menus
+
+</box>
+
+<div class="page-break"></div>
 
 ---
 
@@ -208,10 +215,6 @@ contact add --name Jane Smith --email jane@company.com --phone 91234567 --addres
 - You can mix up the order of information
 - Only name and email are required - everything else is optional!
 
-<div style="font-size: smaller;">
-
-</div>
-
 </box>
 
 **Format:**
@@ -223,7 +226,7 @@ contact add --name NAME --email EMAIL [--phone PHONE] [--address ADDRESS] [--tag
 
 Screenshot Example:
 
-<img src="images/ContactAddExample.png" width="600" alt="Contact Add Example" />
+<img src="images/ContactAddExample.png" width="600" style="max-width:100%" alt="Contact Add Example" />
 
 ### 2.2 `contact list`
 
@@ -238,21 +241,14 @@ contact list
 **What You'll See:**
 
 - Contacts in the order you added them
-- Each contact has a **number** (Note this down - you'll need it!)
-- Use scroll bar if you have lots of contacts
+- Each contact has an **index number** (Note this down - you'll need it!)
+- Use scroll bar or arrow keys if you have lots of contacts
 
 </box>
 
-**Format:**
-<br />
-
-```
-contact list
-```
-
 Screenshot Example:
 
-<img src="images/ContactListExample.png" width="600" alt="Contact List Example" />
+<img src="images/ContactListExample.png" width="600" style="max-width:100%" alt="Contact List Example" />
 
 ### 2.3 `contact edit`
 
@@ -273,9 +269,10 @@ This changes contact #1's phone and email.
 **Important to Know:**
 
 - You can leave optional fields empty to clear them: `contact edit 1 --phone`
-- Remove all tags with: `contact edit 1 --tag`
 - Name and email can't be cleared (they're always needed)
-- You must change at least one thing
+- All the tags will be replaced if you provide new ones
+- You can remove all tags with: `contact edit 1 --tag`
+- You must change **at least one thing**
 
 </box>
 
@@ -288,7 +285,7 @@ contact edit INDEX [--name NAME] [--email EMAIL] [--phone PHONE] [--address ADDR
 
 Screenshot Example:
 
-<img src="images/ContactEditExample.png" width="600" alt="Contact Edit Example" />
+<img src="images/ContactEditExample.png" width="600" style="max-width:100%" alt="Contact Edit Example" />
 
 ### 2.4 `contact find`
 
@@ -323,7 +320,7 @@ contact find --name alice bob --email nus.edu ntu.edu
 - **Partial matches work** (typing `gmail` finds `@gmail.com`)
 - **Multiple words** in one field use OR logic
 - **Different fields** use AND logic
-- Perfect for finding everyone from the same company or area!
+- Perfect for finding everyone from the same school or area!
 
 **Understanding Search Logic:**
 
@@ -353,9 +350,9 @@ Finds: People named alice **OR** bob **AND** who have gmail in their email
 
 </box>
 
-<box type="tip" seamless>
+<box type="warning" seamless>
 
-**Note:** After using `contact find`, the displayed results will have their own index numbers (starting from 1). Use these index numbers when running commands on the found contacts.
+**Note:** After using `contact find`, same contacts will likely have **different index numbers** when compared to using `contact list`. Remember to use these displayed index numbers instead when running commands on the found contacts.
 
 </box>
 
@@ -363,12 +360,12 @@ Finds: People named alice **OR** bob **AND** who have gmail in their email
 <br />
 
 ```
-contact find KEYWORD [MORE_KEYWORDS]... or contact find [--FIELD KEYWORD [MORE_KEYWORDS]...]...
+contact find KEYWORD [MORE_KEYWORDS]… or contact find [--FIELD KEYWORD [MORE_KEYWORDS]…]…
 ```
 
 Screenshot Example:
 
-<img src="images/ContactFindExample.png" width="600" alt="Contact Find Example" />
+<img src="images/ContactFindExample.png" width="600" style="max-width:100%" alt="Contact Find Example" />
 
 _In the example screenshot, `contact find --name lim` was executed._
 
@@ -382,15 +379,15 @@ contact delete 3
 
 This removes contact #3.
 
-**Important:** You can find the index of the contact in the displayed contact list. The index should be a positive number .
+**Important:** You can find the index of the contact in the currently displayed contact list. The index should be a positive number.
 
 <box type="warning" seamless>
 
 **Be Careful!**
 
-- **Double-check the number** before deleting
-- This removes them from **all events** too
-- **You can't undo this**, so make sure you want to delete!
+- **Double-check the index number** before deleting
+- This removes the contact from **all linked events** too
+- **You can't undo this**, so make sure you do want to delete before continuing
 
 </box>
 
@@ -417,13 +414,7 @@ contact show 2
 
 Shows all events for contact #2.
 
-**Important:** You can find the index of the contact in the displayed contact list. The index should be a positive number.
-
-<box type="tip" seamless>
-
-**Note:** The index numbers you see depend on whether you're looking at the full contact list or a filtered search result. After using `contact find`, use the index numbers from the search results.
-
-</box>
+**Important:** You can find the index of the contact in the currently displayed contact list. The index should be a positive number.
 
 <box type="tip" seamless>
 
@@ -446,6 +437,8 @@ Screenshot Example:
 ![Contact Show Example](images/ContactShowExample.png)
 _In the example screenshot, we want to show all events for the contact at index 3 (highlighted under A), so we execute `contact show 2`, bringing us to the events page._
 
+<div class="page-break"></div>
+
 ---
 
 <!-- @@author reven0n -->
@@ -462,11 +455,13 @@ _In the example screenshot, we want to show all events for the contact at index 
 event add --name Team Meeting --date 25-12-2025 14:30
 ```
 
-**You can add locations too:**
+**You can add a location and tags too:**
 
 ```
-event add --name Company Party --date 31-12-2025 19:00 --address Office Lounge
+event add --name Company Party --date 31-12-2025 19:00 --address Office Lounge --tag Work
 ```
+
+Note that events are added with a default status of **PENDING**, you can change them later using [`event edit`](#3-3-event-edit).
 
 <box type="tip" seamless>
 
@@ -474,9 +469,9 @@ event add --name Company Party --date 31-12-2025 19:00 --address Office Lounge
 
 - **Date format:** DD-MM-YYYY HH:MM (24-hour time)
 - **Address is optional** but helpful for location
-- Events **do not** sort by date!
+- **Tags** work similarly to contact tags
 - **Event names must be unique** - no two events can have the same name
-- For repeating events, include a date in the name (e.g., "Orientation 25/26" instead of just "Orientation")
+- For repeating events, you can include a date in the name (e.g., "Orientation 25/26" instead of just "Orientation")
 
 </box>
 
@@ -484,16 +479,16 @@ event add --name Company Party --date 31-12-2025 19:00 --address Office Lounge
 <br />
 
 ```
-event add --name NAME --date DATE [--address ADDRESS]
+event add --name NAME --date DATE [--address ADDRESS] [--tag TAG]…
 ```
 
 Screenshot Example:
 
-<img src="images/EventAddExample.png" width="600" alt="Event Add Example" />
+<img src="images/EventAddExample.png" width="600" style="max-width:100%" alt="Event Add Example" />
 
 ### 3.2 `event list`
 
-**See all your planned events:**
+**See all your planned events**.
 
 ```
 event list
@@ -503,22 +498,15 @@ event list
 
 **👀 What You'll See:**
 
-- Events with date, time, and location (if present)
-- Each event has a **number** (save this for later!)
-- Perfect for planning your schedule!
+- Events with their status, date, time, and location (if present)
+- Each event has an **index number**, similar to how contacts work
+- Events are listed in the order you added them, **not by date**
 
 </box>
 
-**Format:**
-<br />
-
-```
-event list
-```
-
 Screenshot Example:
 
-<img src="images/EventListExample.png" width="600" alt="Event List Example" />
+<img src="images/EventListExample.png" width="600" style="max-width:100%" alt="Event List Example" />
 
 ### 3.3 `event edit`
 
@@ -532,7 +520,7 @@ event edit 1 --name New Meeting Name --date 26-12-2025 15:00
 
 This changes event #1's name and time.
 
-**Important:** You can find the index of the event in the displayed event list. The index should be a positive integer.
+**Important:** You can find the index of the event in the currently displayed event list. The index should be a positive integer.
 
 <box type="tip" seamless>
 
@@ -546,7 +534,7 @@ This changes event #1's name and time.
   - **ONGOING** - Event is currently in progress
   - **DONE** - Event has ended
 - Tags (this will override the original tags!)
-- **At least one thing must be updated**
+- You must change **at least one thing**
 
 </box>
 
@@ -559,7 +547,7 @@ event edit INDEX [--name NAME] [--date DATE] [--address ADDRESS] [--status STATU
 
 Screenshot Example:
 
-<img src="images/EventEditExample.png" width="600" alt="Event Edit Example" />
+<img src="images/EventEditExample.png" width="600" style="max-width:100%" alt="Event Edit Example" />
 
 <!-- @@author -->
 
@@ -600,8 +588,7 @@ Event find specifics:
 
 <box type="tip" seamless>
 
-**Note:** After using `event find`, the displayed results will have their own index numbers (starting from 1). Use
-these index numbers when running commands on the found events.
+**Note:** Similar to [`contact find`](#2-4-contact-find), after using `event find`, same events will likely have **different index numbers** when compared to using `event list`. Remember to use these displayed index numbers instead when running commands on the found events.
 
 </box>
 
@@ -609,12 +596,12 @@ these index numbers when running commands on the found events.
 <br />
 
 ```
-event find KEYWORD [MORE_KEYWORDS]... or event find [--FIELD KEYWORD [MORE_KEYWORDS]...]...
+event find KEYWORD [MORE_KEYWORDS]… or event find [--FIELD KEYWORD [MORE_KEYWORDS]…]…
 ```
 
 Screenshot Example:
 
-<img src="images/EventFindExample.png" width="600" alt="Event Find Example" />
+<img src="images/EventFindExample.png" width="600" style="max-width:100%" alt="Event Find Example" />
 
 <!-- @@author reven0n -->
 
@@ -635,8 +622,8 @@ This deletes event #2 and removes all contact connections.
 **Think Before You Delete!**
 
 - **This can't be undone!**
-- **All contacts will be removed** from this event
-- Consider just removing specific people if you want to keep the event
+- **All linked contacts will be unlinked** from this event
+  - Consider using [`event unlink`](#3-7-event-unlink) to remove specific people if you want to keep the event
 - **Double-check the event number** before deleting
 
 </box>
@@ -650,7 +637,7 @@ event delete INDEX
 
 Screenshot Example:
 
-<img src="images/EventDeleteExample.png" width="600" alt="Event Delete Example" />
+<img src="images/EventDeleteExample.png" width="600" style="max-width:100%" alt="Event Delete Example" />
 
 ### 3.6 `event link`
 
@@ -662,16 +649,13 @@ event link --event 1 --contact 2
 
 This adds contact #2 to event #1.
 
-**Add all listed contacts to an event**
-
 You can also quickly invite everyone in your currently displayed contact list to an event:
 
 ```
 event link --event 1 --contact listed
 ```
 
-This adds **all contacts** from your currently displayed contact list to event #1 —
-perfect for bulk invites or large gatherings.
+This adds **all contacts** from your currently displayed contact list to event #1.
 
 **Important:**
 
@@ -687,7 +671,7 @@ perfect for bulk invites or large gatherings.
 - First check event list and contact list for the right numbers
 - One person can be in **multiple events**
 - You can add the same contact to many events
-- Perfect for building your guest list gradually!
+- You can use [`contact find`](#2-4-contact-find) or [`event show`](#3-8-event-show) to change the currently displayed contact list, and combine it with using `--contact listed` for powerful bulk invites!
 
 </box>
 
@@ -711,8 +695,6 @@ event unlink --event 1 --contact 2
 ```
 
 Removes contact #2 from event #1.
-
-**Remove all listed contacts from an event**
 
 You can also quickly clear your guest list for an event:
 
@@ -752,89 +734,9 @@ Screenshot Example:
 ![Event Unlink Example](images/EventUnlinkExample.png)
 _In the example screenshot, we want to unlink the contact at index 3 (highlighted under A) to the event at index 2, so we execute `event unlink --event 2 --contact 3`._
 
-<!-- @@author CZX123 -->
+<!-- @@author rizrn -->
 
-### 3.8 `event show`
-
-**Check your guest list** for any event:
-
-```
-event show 1
-```
-
-Shows everyone invited to event #1.
-
-**Important:** You can find the index of the event in the displayed event list. The index should be a positive number.
-
-<box type="warning" seamless>
-
-**Important Note About Index Numbers:**
-The contact indexes shown in the event display are specific to this event's participant list. These indexes are different from the indexes in your main contact list.
-
-</box>
-
-<box type="tip" seamless>
-
-**Why This is Helpful:**
-
-- See contact details of everyone invited
-- Know who to expect at your event
-- Helps with planning seating, food, etc.
-- Great for getting a quick overview!
-
-</box>
-
-**Format:**
-<br />
-
-```
-event show INDEX
-```
-
-Screenshot Example:
-
-<img src="images/EventShowExample.png" width="600" alt="Event Show Example" />
-
-<!-- @@author ywijie -->
-
-### 3.9 `event export`
-
-**Quickly copy all contacts** with available status from an event to your clipboard. Or, if status is specified,
-only copy contacts with that status:
-
-```
-event export 1 --status available
-event export 1
-```
-
-Copies all contacts who are available from event #1.
-
-**Important:** You can find the index of the event in the displayed event list. The index should be a positive number.
-
-<box type="tip" seamless>
-
-**Perfect For:**
-
-- Pasting into emails or messages
-- Sending reminders or updates
-- Sharing contact information
-- **You can also click the file icon** next to each event for quick export available contacts!
-- Saves tons of time when sharing contact details
-
-</box>
-
-**Format:**
-<br />
-
-```
-event export INDEX [--status STATUS]
-```
-
-Screenshot Example:
-
-<img src="images/EventExportExample.png" width="600" alt="Event Export Example" />
-
-### 3.10 `event rsvp`
+### 3.8 `event rsvp`
 
 **Keep track of RSVP responses** as people reply:
 
@@ -843,12 +745,6 @@ event rsvp --event 1 --contact 2 --status available
 ```
 
 Marks contact #2 as available for event #1.
-
-<box type="info" seamless>
-
-**Note:** The contact must already be linked to the event (using `event link`) before you can update their RSVP status. If the contact is not linked, you'll get an error message.
-
-</box>
 
 **Important:**
 
@@ -883,7 +779,96 @@ event rsvp --event EVENT_INDEX --contact CONTACT_INDEX --status STATUS
 
 Screenshot Example:
 
-<img src="images/EventRsvpExample.png" width="600" alt="Event RSVP Example" />
+<img src="images/EventRsvpExample.png" width="600" style="max-width:100%" alt="Event RSVP Example" />
+
+<!-- @@author CZX123 -->
+
+### 3.9 `event show`
+
+**Check your guest list** for any event:
+
+```
+event show 1
+```
+
+Shows everyone invited to event #1.
+
+**Important:** You can find the index of the event in the currently displayed event list. The index should be a positive number.
+
+<box type="warning" seamless>
+
+**Note:** Similar to [`contact find`](#2-4-contact-find), the contact indexes will likely change. Remember to use these displayed index numbers instead when running commands on the found contacts.
+
+</box>
+
+<box type="tip" seamless>
+
+**Why This is Helpful:**
+
+- See contact details of everyone invited
+- Know who to expect at your event
+- Helps with planning seating, food, etc.
+- Great for getting a quick overview!
+
+</box>
+
+**Format:**
+<br />
+
+```
+event show INDEX
+```
+
+Screenshot Example:
+
+<img src="images/EventShowExample.png" width="600" style="max-width:100%" alt="Event Show Example" />
+
+<!-- @@author ywijie -->
+
+### 3.10 `event export`
+
+**Quickly copy all contacts** that has status **AVAILABLE** from an event to your clipboard.
+
+```
+event export 1
+```
+
+This copies all contacts who are available from event #1.
+
+You can also copy contacts with a **different status**:
+
+```
+event export 2 --status unavailable
+```
+
+This copies all contacts who are unavailable from event #2.
+
+**Important:** You can find the index of the event in the currently displayed event list. The index should be a positive number.
+
+<box type="tip" seamless>
+
+**Perfect For:**
+
+- Pasting into emails or messages
+- Sending reminders or updates
+- Sharing contact information
+- **You can also click the file icon** next to each event for quick export available contacts!
+- Saves tons of time when sharing contact details
+
+</box>
+
+**Format:**
+<br />
+
+```
+event export INDEX [--status STATUS]
+```
+
+Screenshot Example:
+
+<img src="images/EventExportExample.png" width="600" style="max-width:100%" alt="Event Export Example" />
+
+<div class="page-break"></div>
 
 ---
 
@@ -914,6 +899,33 @@ Your information is saved in a file called `appdata.json` in the data folder. Yo
 
 ## 5. Frequently Asked Questions
 
+<!-- @@author CZX123-reused -->
+<!-- Reused the java version question from CS2103T-F15b-3's user guide, with minor modifications -->
+**Q: How do I check my Java version?**
+
+A: To verify your Java version:
+
+1. Open a terminal and enter `java -version`
+2. You should see an output similar to this format:
+   ```
+    xxxx version "17.0.x"
+    xxxx SE Runtime Environment (build 17.0.x+xx)
+    xxxx 64-Bit Server VM (build 17.0.x+xx, mixed mode, sharing)
+   ```
+   Note that what's displayed in the `xxxx` can be different depending on your Java distribution, but as long as the version number is 17, you're good to go!
+
+3. If the command is not recognised or the version is less than 17: Follow [this guide](https://se-education.org/guides/tutorials/javaInstallation.html) for installation.
+4. After installation, type `java -version` to verify the correct version.
+
+<!-- @@author CZX123 -->
+**Q: How do I navigate to a folder using `cd`?**
+
+A: After opening the terminal, type `cd ` followed by the path to the folder where you saved the app. You can get the folder path in different ways depending on your OS:
+- **Windows:** Open the folder in File Explorer, click on the address bar, copy the path, and paste it after `cd ` in the terminal.
+- **Mac:** Open the folder in Finder, right-click on the folder, hold the Option key, and select "Copy [folder name] as Pathname". Then paste it after `cd ` in the terminal.
+- **Linux:** This will depend on your file manager, but generally, you can right-click on the folder and find an option to copy the path.
+
+<!-- @@author asaiyume -->
 **Q: How do I move my data to another computer?**<br>
 A: Install the app on the new computer and copy your old data file over the new empty one.
 
@@ -928,51 +940,65 @@ A: Yes, but be very careful! Always make a backup first. See the warning above.
 ## 6. Known Issues
 
 1. **Multiple screens:** If you move the app to a second screen and then use only one screen, the app might open off-screen. Delete `preferences.json` to fix this.
-
-2. **Help window:** If you minimize the help window and press `help` again, it might stay minimized. Just restore it manually.
+2. **Graphical glitches:** You may experience some graphical glitches when selecting contacts or events by clicking or using arrow keys. We're aware of this and working on a fix! 
 
 ---
 
-## 7. Quick Command Reference
+<!-- @@author ywijie -->
+## 7. Coming soon…
 
-### 7.1 Basic Commands
+In our development roadmap, we plan to implement:
+
+- Import and export options for contacts and events (CSV, Excel)
+- Automated email invitations with personalized greetings
+- Calendar integration (Google Calendar, Outlook)
+
+**Look forward to it!**
+
+---
+
+<!-- @@author -->
+## 8. Quick Command Reference
+
+### 8.1 Basic Commands
 
 | Action       | Format |
 | ------------ | ------ |
 | **Get Help** | `help` |
 | **Exit App** | `exit` |
 
-### 7.2 Contact Commands
+### 8.2 Contact Commands
 
 | Action                    | Format, Examples                                                                                                                                                                                                        |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Add Contact**           | `contact add --name NAME --email EMAIL [--phone PHONE] [--address ADDRESS] [--tag TAG]…`<br>e.g. `contact add --name James --email james@e.com --phone 91234567 --address 123 Main Street --tag friend --tag colleague` |
 | **Delete Contact**        | `contact delete INDEX`<br>e.g. `contact delete 3`                                                                                                                                                                       |
 | **Edit Contact**          | `contact edit INDEX [--name NAME] [--email EMAIL] [--phone PHONE] [--address ADDRESS] [--tag TAG]…`<br>e.g. `contact edit 2 --name James --email jameslee@e.com`                                                        |
-| **Find Contacts**         | `contact find KEYWORD [MORE_KEYWORDS]...` or `contact find [--FIELD KEYWORD [MORE_KEYWORDS]...]...`<br>e.g. `contact find --email gmail`<br>e.g. `contact find --phone 9123`                                            |
+| **Find Contacts**         | `contact find KEYWORD [MORE_KEYWORDS]…` or `contact find [--FIELD KEYWORD [MORE_KEYWORDS]…]…`<br>e.g. `contact find --email gmail`<br>e.g. `contact find --phone 9123`                                            |
 | **List Contacts**         | `contact list`                                                                                                                                                                                                          |
 | **Show Contact's Events** | `contact show INDEX`<br>e.g. `contact show 1`                                                                                                                                                                           |
 
-### 7.3 Event Commands
+### 8.3 Event Commands
 
-| Action                                    | Format, Examples                                                                                                                            |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add Event**                             | `event add --name NAME --date DATE [--address ADDRESS]`<br>e.g. `event add --name Meeting --date 25-12-2025 14:30 --address Room 4`         |
-| **Delete Event**                          | `event delete INDEX`<br>e.g. `event delete 2`                                                                                               |
-| **Edit Event**                            | `event edit INDEX [--name NAME] [--date DATE] [--address ADDRESS] [--status STATUS] [--tag TAG]…`<br>e.g. `event edit 1 --name New Meeting` |
-| **Find Event**                            | `event find KEYWORDS [MORE_KEYWORDS]...` or <br>e.g. `event find --name Conference` <br> `event find --status pending` <br/>                |
-| **List Events**                           | `event list`                                                                                                                                |
-| **Link Contact to Event**                 | `event link --event EVENT_INDEX --contact CONTACT_INDEX`<br>e.g. `event link --event 1 --contact 2`                                         |
-| **Link All Listed Contacts to Event**     | `event link --event EVENT_INDEX --contact listed`<br>e.g. `event link --event 1 --contact listed`                                           |
-| **Unlink Contact from Event**             | `event unlink --event EVENT_INDEX --contact CONTACT_INDEX`<br>e.g. `event unlink --event 1 --contact 2`                                     |
-| **Unlink All Listed Contacts from Event** | `event unlink --event EVENT_INDEX --contact listed`<br>e.g. `event unlink --event 1 --contact listed`                                       |
-| **Show Event's Contacts**                 | `event show INDEX`<br>e.g. `event show 1`                                                                                                   |
-| **Export Event Contacts**                 | `event export INDEX [--status STATUS]`<br>e.g. `event export 1`<br> `event export 1 --status available`<br/>                                |
-| **RSVP to Event**                         | `event rsvp --event EVENT_INDEX --contact CONTACT_INDEX --status STATUS`<br>e.g. `event rsvp --event 1 --contact 2 --status available`      |
+| Action                                | Format, Examples                                                                                                                                              |
+| ------------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Event**                         | `event add --name NAME --date DATE [--address ADDRESS] [--tag TAG]…`<br>e.g. `event add --name Meeting --date 25-12-2025 14:30 --address Room 4 --tag Work` |
+| **Delete Event**                      | `event delete INDEX`<br>e.g. `event delete 2`                                                                                                                 |
+| **Edit Event**                        | `event edit INDEX [--name NAME] [--date DATE] [--address ADDRESS] [--status STATUS] [--tag TAG]…`<br>e.g. `event edit 1 --name New Meeting`                   |
+| **Find Event**                        | `event find KEYWORD [MORE_KEYWORDS]…` or <br>e.g. `event find --name Conference` <br> `event find --status pending` <br/>                                  |
+| **List Events**                       | `event list`                                                                                                                                                  |
+| **Link Contact to Event**             | `event link --event EVENT_INDEX --contact CONTACT_INDEX`<br>e.g. `event link --event 1 --contact 2`                                                           |
+| **Link Listed Contacts to Event**     | `event link --event EVENT_INDEX --contact listed`<br>e.g. `event link --event 1 --contact listed`                                                             |
+| **Unlink Contact from Event**         | `event unlink --event EVENT_INDEX --contact CONTACT_INDEX`<br>e.g. `event unlink --event 1 --contact 2`                                                       |
+| **Unlink Listed Contacts from Event** | `event unlink --event EVENT_INDEX --contact listed`<br>e.g. `event unlink --event 1 --contact listed`                                                         |
+| **RSVP to Event**                     | `event rsvp --event EVENT_INDEX --contact CONTACT_INDEX --status STATUS`<br>e.g. `event rsvp --event 1 --contact 2 --status available`                        |
+| **Show Event's Contacts**             | `event show INDEX`<br>e.g. `event show 1`                                                                                                                     |
+| **Export Event Contacts**             | `event export INDEX [--status STATUS]`<br>e.g. `event export 1`<br> `event export 1 --status available`<br/>                                                  |
 
 ---
 
-## 8. You're All Set!
+<!-- @@author asaiyume -->
+## 9. You're All Set!
 
 Congratulations! You now know everything about using NUS Event Mailer Pro.
 
@@ -983,19 +1009,4 @@ Congratulations! You now know everything about using NUS Event Mailer Pro.
 
 **Happy event planning!**
 
----
-
-## 9. Coming soon...
-
-In our development roadmap, we plan to implement:
-
-- Import and export options for contacts and events (CSV, Excel)
-- Automated email invitations with personalized greetings
-- Calendar integration (Google Calendar, Outlook)
-- Web application for easier access and on-the-go management
-
-**Look forward to it!**
-
----
-
-_Having trouble? Check our FAQ section above or type `help` in the app!_
+<div style="height:20px"></div>

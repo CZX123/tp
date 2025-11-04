@@ -1,4 +1,7 @@
 <head-bottom>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{baseUrl}}/stylesheets/main.css">
 </head-bottom>
 
@@ -31,7 +34,8 @@
   * [1. Getting Started]({{ baseUrl }}/UserGuide.html#1-getting-started)
     * [1.1 Installation]({{ baseUrl }}/UserGuide.html#1-1-installation)
     * [1.2 Command Formats]({{ baseUrl }}/UserGuide.html#1-2-command-formats)
-    * [1.3 User Interface Overview]({{ baseUrl }}/UserGuide.html#1-3-user-interface-overview)
+    * [1.3 Input Constraints]({{ baseUrl }}/UserGuide.html#1-3-input-constraints)
+    * [1.4 User Interface Overview]({{ baseUrl }}/UserGuide.html#1-4-user-interface-overview)
   * [2. Managing Contacts]({{ baseUrl }}/UserGuide.html#2-managing-your-contacts)
     * [2.1 `contact add`]({{ baseUrl }}/UserGuide.html#2-1-contact-add)
     * [2.2 `contact list`]({{ baseUrl }}/UserGuide.html#2-2-contact-list)
@@ -47,18 +51,20 @@
     * [3.5 `event delete`]({{ baseUrl }}/UserGuide.html#3-5-event-delete)
     * [3.6 `event link`]({{ baseUrl }}/UserGuide.html#3-6-event-link)
     * [3.7 `event unlink`]({{ baseUrl }}/UserGuide.html#3-7-event-unlink)
-    * [3.8 `event show`]({{ baseUrl }}/UserGuide.html#3-8-event-show)
-    * [3.9 `event export`]({{ baseUrl }}/UserGuide.html#3-9-event-export)
-    * [3.10 `event rsvp`]({{ baseUrl }}/UserGuide.html#3-10-event-rsvp)
+    * [3.8 `event rsvp`]({{ baseUrl }}/UserGuide.html#3-8-event-rsvp)
+    * [3.9 `event show`]({{ baseUrl }}/UserGuide.html#3-9-event-show)
+    * [3.10 `event export`]({{ baseUrl }}/UserGuide.html#3-10-event-export)
   * [4. Your Data is Safe]({{ baseUrl }}/UserGuide.html#4-your-data-is-safe)
     * [4.1 Automatic Saving]({{ baseUrl }}/UserGuide.html#4-1-automatic-saving)
     * [4.2 Advanced: Editing Data Directly]({{ baseUrl }}/UserGuide.html#4-2-advanced-editing-data-directly)
   * [5. FAQ]({{ baseUrl }}/UserGuide.html#5-frequently-asked-questions)
   * [6. Known Issues]({{ baseUrl }}/UserGuide.html#6-known-issues)
-  * [7. Quick Command Reference]({{ baseUrl }}/UserGuide.html#7-quick-command-reference)
-    * [7.1 Basic Commands]({{ baseUrl }}/UserGuide.html#7-1-basic-commands)
-    * [7.2 Contact Commands]({{ baseUrl }}/UserGuide.html#7-2-contact-commands)
-    * [7.3 Event Commands]({{ baseUrl }}/UserGuide.html#7-3-event-commands)
+  * [7. Coming Soon]({{ baseUrl }}/UserGuide.html#7-coming-soon)
+  * [8. Quick Command Reference]({{ baseUrl }}/UserGuide.html#8-quick-command-reference)
+    * [8.1 Basic Commands]({{ baseUrl }}/UserGuide.html#8-1-basic-commands)
+    * [8.2 Contact Commands]({{ baseUrl }}/UserGuide.html#8-2-contact-commands)
+    * [8.3 Event Commands]({{ baseUrl }}/UserGuide.html#8-3-event-commands)
+  * [9. You're All Set]({{ baseUrl }}/UserGuide.html#9-you-re-all-set)
 * [Developer Guide]({{ baseUrl }}/DeveloperGuide.html) :expanded:
   * [1. Getting Started]({{ baseUrl }}/DeveloperGuide.html#1-getting-started)
     * [1.1 Project Overview]({{ baseUrl }}/DeveloperGuide.html#1-1-project-overview)
@@ -111,6 +117,8 @@
     * [B.3 Event Management Testing]({{ baseUrl }}/DeveloperGuide.html#b-3-event-management-testing)
     * [B.4 Data Persistence Testing]({{ baseUrl }}/DeveloperGuide.html#b-4-data-persistence-testing)
     * [B.5 Error Handling Testing]({{ baseUrl }}/DeveloperGuide.html#b-5-error-handling-testing)
+  * [Appendix C: Effort]({{ baseUrl }}/DeveloperGuide.html#appendix-c-effort)
+  * [Appendix D: Planned Enhancements]({{ baseUrl }}/DeveloperGuide.html#appendix-d-planned-enhancements)
 * [About Us]({{ baseUrl }}/AboutUs.html)
       </site-nav>
     </div>

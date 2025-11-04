@@ -3,6 +3,8 @@
   title: ""
 ---
 
+<img width="80" src="images/AppIcon.png" alt="App Icon"/>
+
 # NUS Event Mailer Pro
 
 [![CI Status](https://github.com/AY2526S1-CS2103T-F15b-2/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2526S1-CS2103T-F15b-2/tp/actions)
